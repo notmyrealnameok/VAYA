@@ -4,24 +4,42 @@
     "slug": "VAYA-MONATE",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/app_logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/app_splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.vayaMonate",
+      "config": {
+        "googleMapsApiKey": "AIzaSyANepOy-EY60mynMwuQLLwYnMk5_pCzwvE"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyANepOy-EY60mynMwuQLLwYnMk5_pCzwvE"
+        }
+      },
+      "package": "com.yourcompany.vayaMonate"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "95a45cb0-fb11-4ecd-bb9e-93724d4ce43b"
+      }
     }
   }
 }

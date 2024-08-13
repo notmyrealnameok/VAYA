@@ -28,7 +28,7 @@ const ResetPasswordScreen = ({ navigation }) => {
       <LoadingOverlay visible={loading} />
       <Text style={styles.title}>Reset Password</Text>
       <TextInput
-        placeholder="Enter the email associated with your account"
+        placeholder="Enter your email"
         value={email}
         onChangeText={setEmail}
         style={styles.input}
@@ -50,29 +50,34 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    fontWeight: 'bold',
     textAlign: 'center',
+    color: COLORS.blue,
     marginBottom: 20,
-    color: COLORS.red,
   },
   input: {
-    height: 40,
-    borderColor: COLORS.red,
-    borderWidth: 1,
+    height: 50,
+    borderColor: COLORS.blue,
     marginBottom: 12,
-    paddingHorizontal: 8,
+    paddingHorizontal: 16,
     borderRadius: 25,
-    paddingLeft: 16,
+    color: COLORS.black,
+    backgroundColor: '#F0F0F0', // Softer gray for a nicer background
+    fontSize: 16,
+    fontWeight: '500',
+    elevation: 3, // Adds subtle shadow for a raised effect
   },
   sendButton: {
     backgroundColor: COLORS.red,
     borderRadius: 25,
-    paddingVertical: 10,
+    paddingVertical: 12,
     alignItems: 'center',
     marginTop: 20,
   },
   sendText: {
     color: COLORS.white,
-    fontSize: 16,
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 

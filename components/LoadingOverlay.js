@@ -1,39 +1,48 @@
 import React from 'react';
-import { Modal, View, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet, Image, Text } from 'react-native';
 import { COLORS } from '../constants/colors';
 
 const LoadingOverlay = ({ visible }) => {
+  if (!visible) return null;
+
   return (
-    <Modal
-      transparent={true}
-      animationType="none"
-      visible={visible}
-      onRequestClose={() => {}}>
-      <View style={styles.modalBackground}>
-        <View style={styles.activityIndicatorWrapper}>
-          <ActivityIndicator size="large" color={COLORS.blue} />
-        </View>
+    <View style={styles.overlay}>
+      <Image source={require('../assets/app_logo.png')} style={styles.logo} />
+      <View style={styles.loadingTextContainer}>
+        <Text style={styles.loadingText}>Welcome to Vaya Monate!</Text>
+        <Text style={styles.loadingText}>Discover the joy of seamless travel.</Text>
       </View>
-    </Modal>
+      <ActivityIndicator size="large" color={COLORS.red} />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  modalBackground: {
-    flex: 1,
-    alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-  activityIndicatorWrapper: {
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
     backgroundColor: COLORS.white,
-    height: 100,
-    width: 100,
-    borderRadius: 10,
-    display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
+  },
+  loadingTextContainer: {
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    color: COLORS.red,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 5,
+    paddingHorizontal: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    borderRadius: 10,
+    paddingVertical: 5,
   },
 });
 
